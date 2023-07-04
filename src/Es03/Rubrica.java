@@ -1,6 +1,7 @@
 package Es03;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Rubrica {
@@ -34,25 +35,45 @@ public class Rubrica {
 	}
 
 	public void rimuovi(String nome) {
-		if (this.contatti.containsValue(nome)) {
-			this.contatti.remove(this.Nome, this.telefono);
+		for (Iterator<Map.Entry<String, String>> iterator = contatti.entrySet().iterator(); iterator.hasNext();) {
+			Map.Entry<String, String> entry = iterator.next();
+			if (entry.getKey().equals(nome)) {
+				iterator.remove();
+			}
 		}
 	}
 
 	public void trovaPerNum(String telefono) {
-		if (this.contatti.containsValue(telefono)) {
+		System.out.println("Il contatto che hai cercato:");
+		for (Iterator<Map.Entry<String, String>> iterator = contatti.entrySet().iterator(); iterator.hasNext();) {
+			Map.Entry<String, String> entry = iterator.next();
+			if (entry.getValue().equals(telefono)) {
+				String key = entry.getKey();
+				String value = entry.getValue();
+				System.out.println("Nome: " + key + ", Numero di telefono: " + value.toString());
+			}
 		}
 	}
 
-	public void trovaPerNom(Map<String, Rubrica> x, Rubrica y) {
-		x.remove(y.getNome(), y);
+	public void trovaPerNom(String nome) {
+		System.out.println("Il contatto che hai cercato:");
+		for (Iterator<Map.Entry<String, String>> iterator = contatti.entrySet().iterator(); iterator.hasNext();) {
+			Map.Entry<String, String> entry = iterator.next();
+			if (entry.getKey().equals(nome)) {
+				String key = entry.getKey();
+				String value = entry.getValue();
+				System.out.println("Nome: " + key + ", Numero di telefono: " + value.toString());
+			}
+		}
 	}
 
-	public void stampa(Map<String, Rubrica> x) {
-		for (Map.Entry<String, Rubrica> entry : x.entrySet()) {
+	public void stampa() {
+		System.out.println("Questa è la rubrica di: " + this.getNome() + " " + "con il numero: " + this.getTelefono());
+		System.out.println("Lista Contatti:");
+		for (Map.Entry<String, String> entry : this.contatti.entrySet()) {
 			String key = entry.getKey();
-			Rubrica value = entry.getValue();
-			System.out.println("Chiave: " + key + ", Valore: " + value.toString());
+			String value = entry.getValue();
+			System.out.println("Nome: " + key + ", Numero di telefono: " + value.toString());
 		}
 
 	}

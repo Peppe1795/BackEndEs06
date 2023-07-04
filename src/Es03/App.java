@@ -1,19 +1,18 @@
 package Es03;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class App {
 
 	public static void main(String[] args) {
-		Rubrica giuseppe = new Rubrica("peppe", "546546544");
-		Rubrica antonio = new Rubrica("antonio", "546546544");
-		Rubrica luca = new Rubrica("luca", "546546544");
-		Map<String, Rubrica> contatti = new HashMap<>();
-		giuseppe.inserisci(contatti, giuseppe);
-		antonio.inserisci(contatti, antonio);
-		luca.inserisci(contatti, luca);
-		giuseppe.stampa(contatti);
-
+		Rubrica rubrica = new Rubrica("peppe", "546546544");
+		rubrica.inserisci("Marco", "354867545");
+		rubrica.inserisci("Antonio", "3456978157");
+		rubrica.inserisci("Flavio", "2165165161");
+		rubrica.inserisci("Luca", "651155651");
+		rubrica.inserisci("Francesco", "65151116");
+		rubrica.stampa();
+		rubrica.rimuovi("Flavio");
+		rubrica.stampa();
+		rubrica.trovaPerNom("Antonio");
+		rubrica.trovaPerNum("65151116");
 	}
 }

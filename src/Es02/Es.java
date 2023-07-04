@@ -22,6 +22,7 @@ public class Es {
 		randomic.terza(nuovaLista, true);
 		System.out.println("Stampa solo le posizioni disapari");
 		randomic.terza(nuovaLista, false);
+		input.close();
 	}
 
 }

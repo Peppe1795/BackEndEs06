@@ -6,7 +6,7 @@ import java.util.Map;
 public class Rubrica {
 	private String Nome;
 	private String telefono;
-	Map<String, Rubrica> contatti = new HashMap<>();
+	Map<String, String> contatti = new HashMap<>();
 
 	public Rubrica(String nom, String tel) {
 		this.setNome(nom);
@@ -29,16 +29,19 @@ public class Rubrica {
 		this.telefono = telefono;
 	}
 
-	public void inserisci(Map<String, Rubrica> x, Rubrica y) {
-		x.put(y.getNome(), y);
+	public void inserisci(String nome, String telefono) {
+		this.contatti.put(nome, telefono);
 	}
 
-	public void rimuovi(Map<String, Rubrica> x, Rubrica y) {
-		x.remove(y.getNome());
+	public void rimuovi(String nome) {
+		if (this.contatti.containsValue(nome)) {
+			this.contatti.remove(this.Nome, this.telefono);
+		}
 	}
 
-	public void trovaPerNum(Map<String, Rubrica> x, Rubrica y) {
-		x.remove(y.getNome(), y);
+	public void trovaPerNum(String telefono) {
+		if (this.contatti.containsValue(telefono)) {
+		}
 	}
 
 	public void trovaPerNom(Map<String, Rubrica> x, Rubrica y) {

@@ -34,7 +34,7 @@ public class Rubrica {
 	}
 
 	public void rimuovi(Map<String, Rubrica> x, Rubrica y) {
-		x.remove(y.getNome(), y);
+		x.remove(y.getNome());
 	}
 
 	public void trovaPerNum(Map<String, Rubrica> x, Rubrica y) {
@@ -46,8 +46,16 @@ public class Rubrica {
 	}
 
 	public void stampa(Map<String, Rubrica> x) {
-		for (iterable_type iterable_element : iterable) {
-
+		for (Map.Entry<String, Rubrica> entry : x.entrySet()) {
+			String key = entry.getKey();
+			Rubrica value = entry.getValue();
+			System.out.println("Chiave: " + key + ", Valore: " + value.toString());
 		}
+
+	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + getNome() + ", Telefono: " + getTelefono();
 	}
 }

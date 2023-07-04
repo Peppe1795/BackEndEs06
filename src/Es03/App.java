@@ -13,6 +13,7 @@ public class App {
 		giuseppe.inserisci(contatti, giuseppe);
 		antonio.inserisci(contatti, antonio);
 		luca.inserisci(contatti, luca);
+		giuseppe.stampa(contatti);
 
 	}
 }
